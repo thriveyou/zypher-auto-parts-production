@@ -47,7 +47,7 @@ export default function OrderCTA() {
                   whitespace-nowrap
                 "
               >
-                Order Now on WhatsApp
+                Get a Quotation
               </a>
             </div>
             
@@ -62,7 +62,7 @@ export default function OrderCTA() {
               </div>
               <div
                 className="
-                  text-[#9A0111] mt-1
+                  text-[#ffffff] mt-1
                   text-xs md:text-xs xl:text-sm
                 "
               >

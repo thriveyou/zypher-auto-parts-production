@@ -18,7 +18,7 @@ const items: Item[] = [
 
 export default function PartsShowcaseGrid() {
   return (
-    <section
+    <section id="products"
       className="
         my-10 mx-4 px-4
         md:my-12 md:mx-16 md:px-8

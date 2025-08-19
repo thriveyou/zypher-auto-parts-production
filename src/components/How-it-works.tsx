@@ -26,7 +26,7 @@ export default function HowItWorks() {
       <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8 xl:gap-1">
         <div className="flex items-center justify-center gap-4 md:gap-8 xl:gap-4">
           <span className="rotate-180 [writing-mode:vertical-rl] text-slate-800 font-bold tracking-wide text-3xl md:text-4xl lg:text-5xl xl:text-7xl">
-            How it works <br /> page
+            How it works
           </span>
           <Image
             src={carTop}

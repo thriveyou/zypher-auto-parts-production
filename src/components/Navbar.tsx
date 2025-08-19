@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/Zypher.png";
 
 const nav = [
   { href: "/", label: "HOMES" },
   { href: "/about", label: "ABOUT US" },
-  { href: "/products", label: "PRODUCTS" },
+  { href: "/#products", label: "PRODUCTS" },
   { href: "/contact", label: "CONTACT" },
 ];
 

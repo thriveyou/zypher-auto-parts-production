@@ -31,7 +31,7 @@ export default function Hero() {
               <span className={`${saira.className} text-[#9A0111]`}>Genuine</span>{" "}
               Vehicle
               <br />
-              Parts Direct from
+              Parts Directly from
               <br />
               <span className="inline-flex items-center gap-5 md:gap-8">
                 <span className="inline-block h-5 w-5 md:h-6 md:w-6 xl:h-8 xl:w-8 rounded-full ring-10 ring-[#eee0e0] bg-[#B41515]" />
@@ -41,13 +41,14 @@ export default function Hero() {
 
             <p className="mt-4 max-w-md md:max-w-xl xl:max-w-xl 
                            text-base md:text-lg xl:text-xl text-slate-600">
-              Car &amp; bike parts sourced in Japan and shipped straight to your
-              doorstep in Sri Lanka fast, safe, and affordable.
+              Car & bike parts sourced in Japan and shipped straight to your doorstep in Sri Lanka — 
+              fast, safe, and affordable
+
             </p>
 
             <div className="mt-6">
               <a
-                href="https://wa.me/0000000000?text=Hi!%20I%20want%20to%20order%20a%20vehicle%20part."
+                href="https://wa.me/818030802640?text=Hi!%20I%20want%20to%20order%20a%20vehicle%20part."
                 className="inline-flex items-center gap-2 md:gap-3 rounded-lg
                            px-4 py-2 md:px-8 md:py-4
                            text-sm md:text-lg xl:text-xl
