@@ -1,5 +1,5 @@
 import Image from "next/image";
-import carTop from "@/assets/how-it-works-banner.png";
+import carTop from "@/assets/How-it-works-banner.png";
 
 function Step({ n, title, text }: { n: string; title: string; text: string }) {
   return (
