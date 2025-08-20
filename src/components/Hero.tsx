@@ -1,10 +1,15 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { saira } from "@/app/layout";
 import heroParts from "@/assets/hero-parts.png";
 
 export default function Hero() {
+  const heroRef = useRef<HTMLElement | null>(null);
+
   return (
-    <section className="mt-10">
+    <section ref={heroRef} className="mt-10">
       <div className="mx-4 md:mx-16 xl:mx-28 px-4 md:px-6 xl:px-12">
         <div
           className="
@@ -14,14 +19,8 @@ export default function Hero() {
             xl:[grid-template-columns:1.3fr_0.7fr]
           "
         >
-          <div>
-            <div className="inline-flex items-center rounded-full border border-slate-200 bg-white 
-                            px-3 py-1.5 text-sm 
-                            md:px-3.5 md:py-2 md:text-sm 
-                            xl:px-4 xl:py-2 xl:text-base 
-                            font-medium text-slate-600">
-              DIRECT IMPORT – GENUINE ONLY
-            </div>
+          <div className="relative pt-14 md:pt-16">
+            <HeroAutoBanner targetRef={heroRef} />
 
             <h1
               className="mt-8 md:mt-10 xl:mt-12 font-semibold tracking-wide text-slate-900 leading-[1.2]
@@ -41,9 +40,8 @@ export default function Hero() {
 
             <p className="mt-4 max-w-md md:max-w-xl xl:max-w-xl 
                            text-base md:text-lg xl:text-xl text-slate-600">
-              Car & bike parts sourced in Japan and shipped straight to your doorstep in Sri Lanka — 
+              Car &amp; bike parts sourced in Japan and shipped straight to your doorstep in Sri Lanka — 
               fast, safe, and affordable
-
             </p>
 
             <div className="mt-6">
@@ -55,7 +53,6 @@ export default function Hero() {
                            text-white shadow hover:opacity-95
                            bg-gradient-to-r from-[#1ABA1A] to-[#00A975] whitespace-nowrap"
               >
-
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
@@ -104,5 +101,53 @@ export default function Hero() {
         </div>
       </div>
     </section>
+  );
+}
+
+function HeroAutoBanner({
+  targetRef,
+}: {
+  targetRef: React.RefObject<HTMLElement | null>;
+}) {
+  const [visible, setVisible] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const el = targetRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+          timeoutRef.current = setTimeout(() => setVisible(true), 500);
+        } else {
+          if (timeoutRef.current) clearTimeout(timeoutRef.current);
+          setVisible(false);
+        }
+      },
+      { root: null, threshold: [0, 0.25, 0.4, 0.6, 0.8, 1] }
+    );
+
+    observer.observe(el);
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      observer.disconnect();
+    };
+  }, [targetRef]);
+
+  return (
+    <div className="absolute top-0 left-0 z-30">
+      <div
+        className={[
+          "inline-flex items-center rounded-full border border-slate-200 bg-white",
+          "px-4 py-2 text-sm md:text-sm xl:text-base font-medium text-slate-700 shadow-lg",
+          "transition-all duration-1000 ease-out",
+          visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none",
+        ].join(" ")}
+        aria-hidden={!visible}
+      >
+        DIRECT IMPORT – GENUINE ONLY
+      </div>
+    </div>
   );
 }
