@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { saira } from "@/app/layout";
+import { saira } from "@/styles/fonts";
 import heroParts from "@/assets/hero-parts.png";
 import PopupModal from "@/components/Popup-Modal";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import {saira} from "@/app/layout";
+import { saira } from "@/styles/fonts";
 import Image from "next/image";
 import logo from "@/assets/Zypher.png"; 
 
