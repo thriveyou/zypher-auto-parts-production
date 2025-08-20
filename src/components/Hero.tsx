@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { saira } from "@/app/layout";
 import heroParts from "@/assets/hero-parts.png";
+import PopupModal from "@/components/Popup-Modal";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -110,6 +111,7 @@ function HeroAutoBanner({
   targetRef: React.RefObject<HTMLElement | null>;
 }) {
   const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -136,18 +138,27 @@ function HeroAutoBanner({
   }, [targetRef]);
 
   return (
-    <div className="absolute top-0 left-0 z-30">
-      <div
-        className={[
-          "inline-flex items-center rounded-full border border-slate-200 bg-white",
-          "px-4 py-2 text-sm md:text-sm xl:text-base font-medium text-slate-700 shadow-lg",
-          "transition-all duration-1000 ease-out",
-          visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none",
-        ].join(" ")}
-        aria-hidden={!visible}
-      >
-        DIRECT IMPORT – GENUINE ONLY
+    <>
+      <div className="absolute top-0 left-0 z-30">
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className={[
+            "inline-flex items-center rounded-full border border-slate-200 bg-white",
+            "px-4 py-2 text-sm md:text-sm xl:text-base font-medium text-slate-700 shadow-lg",
+            "transition-all duration-1000 ease-out",
+            visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none",
+            "hover:shadow-md"
+          ].join(" ")}
+          aria-haspopup="dialog"
+          aria-controls="direct-import-modal"
+          aria-hidden={!visible}
+        >
+          DIRECT IMPORT – GENUINE ONLY
+        </button>
       </div>
-    </div>
+
+      <PopupModal open={open} onClose={() => setOpen(false)} />
+    </>
   );
 }

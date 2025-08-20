@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 type Errors = Partial<{
   name: string;
@@ -10,9 +10,8 @@ type Errors = Partial<{
 }>;
 
 export default function ContactForm() {
-  const [pending, setPending] = useState(false);
-  const [ok, setOk] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   function validate(form: HTMLFormElement) {
     const data = new FormData(form);
@@ -30,7 +29,7 @@ export default function ContactForm() {
     if (!message) nextErrors.message = "Message is required.";
 
     if (file && file.size > 0) {
-      const max = 5 * 1024 * 1024; 
+      const max = 5 * 1024 * 1024;
       if (file.size > max) nextErrors.attachment = "File must be ≤ 5MB.";
       const allowed = ["application/pdf", "image/jpeg", "image/png"];
       if (!allowed.includes(file.type))
@@ -41,32 +40,17 @@ export default function ContactForm() {
     return Object.keys(nextErrors).length === 0;
   }
 
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget;
-
-    if (!validate(form)) return;
-
-    setPending(true);
-    await new Promise((r) => setTimeout(r, 600));
-    setPending(false);
-    setOk(true);
-    form.reset();
+  function handleFieldValidate() {
+    if (formRef.current) validate(formRef.current);
   }
 
   return (
     <form
-      onSubmit={onSubmit}
+      ref={formRef}
       className="space-y-5"
       encType="multipart/form-data"
       noValidate
     >
-      {ok && (
-        <div className="rounded-md border border-green-300 bg-green-50 text-green-800 px-4 py-3">
-         Message ready! (We’ll hook up sending next.)
-        </div>
-      )}
-
       <div>
         <label className="block text-sm font-medium mb-1" htmlFor="name">
           Name
@@ -78,6 +62,8 @@ export default function ContactForm() {
           placeholder="John Doe"
           className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-black"
           required
+          onBlur={handleFieldValidate}
+          onChange={handleFieldValidate}
         />
         {errors.name && <p className="text-sm text-red-600 mt-1">{errors.name}</p>}
       </div>
@@ -94,6 +80,8 @@ export default function ContactForm() {
           placeholder="+94 71 234 5678"
           className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-black"
           required
+          onBlur={handleFieldValidate}
+          onChange={handleFieldValidate}
         />
         {errors.phone && <p className="text-sm text-red-600 mt-1">{errors.phone}</p>}
       </div>
@@ -108,6 +96,7 @@ export default function ContactForm() {
           type="file"
           accept=".pdf,.jpg,.jpeg,.png"
           className="w-full rounded-md border px-3 py-2 file:mr-3 file:py-2 file:px-3 file:border-0 file:bg-[#9A0111] file:text-white file:rounded-md"
+          onChange={handleFieldValidate}
         />
         {errors.attachment && (
           <p className="text-sm text-red-600 mt-1">{errors.attachment}</p>
@@ -126,6 +115,8 @@ export default function ContactForm() {
           placeholder="Tell us what you need…"
           className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-black"
           required
+          onBlur={handleFieldValidate}
+          onChange={handleFieldValidate}
         />
         {errors.message && (
           <p className="text-sm text-red-600 mt-1">{errors.message}</p>
@@ -133,11 +124,11 @@ export default function ContactForm() {
       </div>
 
       <button
-        type="submit"
-        disabled={pending}
-        className="inline-flex items-center justify-center rounded-md bg-[#9A0111] text-white px-5 py-2.5 disabled:opacity-60"
+        type="button"
+        onClick={handleFieldValidate}
+        className="inline-flex items-center justify-center rounded-md bg-[#9A0111] text-white px-5 py-2.5"
       >
-        {pending ? "Saving..." : "Send Message"}
+        Send Message
       </button>
     </form>
   );
