@@ -1,5 +1,4 @@
-import TopBar from '@/components/TopBar';
-import Navbar from '@/components/Navbar';
+
 import Hero from '@/components/Hero';
 import LogoSection from '@/components/LogoSection';
 import FeaturesSection from '@/components/FeaturesSection';
@@ -12,8 +11,6 @@ import Footer from '@/components/Footer';
 export default function Page() {
   return (
     <main>
-      <TopBar />
-      <Navbar />
       <Hero />
       <LogoSection />
       <FeaturesSection />

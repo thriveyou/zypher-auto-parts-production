@@ -48,7 +48,7 @@ export default function Hero() {
 
             <div className="mt-6">
               <a
-                href="https://wa.me/818030802640?text=Hi!%20I%20want%20to%20order%20a%20vehicle%20part."
+                href="https://wa.me/94767115861?text=Hi!%20I%20want%20to%20order%20a%20vehicle%20part."
                 className="inline-flex items-center gap-2 md:gap-3 rounded-lg
                            px-4 py-2 md:px-8 md:py-4
                            text-sm md:text-lg xl:text-xl
