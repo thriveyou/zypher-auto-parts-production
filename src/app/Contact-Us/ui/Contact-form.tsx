@@ -11,6 +11,8 @@ type Errors = Partial<{
 
 export default function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
+  const [pending, setPending] = useState(false);
+  const [ok, setOk] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
 
   function validate(form: HTMLFormElement) {
@@ -30,8 +32,8 @@ export default function ContactForm() {
 
     if (file && file.size > 0) {
       const max = 5 * 1024 * 1024;
-      if (file.size > max) nextErrors.attachment = "File must be ≤ 5MB.";
       const allowed = ["application/pdf", "image/jpeg", "image/png"];
+      if (file.size > max) nextErrors.attachment = "File must be ≤ 5MB.";
       if (!allowed.includes(file.type))
         nextErrors.attachment = "Allowed types: PDF, JPG, PNG.";
     }
@@ -44,12 +46,42 @@ export default function ContactForm() {
     if (formRef.current) validate(formRef.current);
   }
 
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (!validate(form)) return;
+    setPending(true);
+    setOk(false);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: new FormData(form),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        if (data?.errors) setErrors(data.errors);
+        throw new Error("Send failed");
+      }
+
+      setOk(true);
+      form.reset();
+      setErrors({});
+    } catch {
+      // You can show a toast or inline error area if you like
+    } finally {
+      setPending(false);
+    }
+  }
+
   return (
     <form
       ref={formRef}
       className="space-y-5"
       encType="multipart/form-data"
       noValidate
+      onSubmit={onSubmit}
     >
       <div>
         <label className="block text-sm font-medium mb-1" htmlFor="name">
@@ -124,12 +156,18 @@ export default function ContactForm() {
       </div>
 
       <button
-        type="button"
-        onClick={handleFieldValidate}
-        className="inline-flex items-center justify-center rounded-md bg-[#9A0111] text-white px-5 py-2.5"
+        type="submit"
+        disabled={pending}
+        className="inline-flex items-center justify-center rounded-md bg-[#9A0111] text-white px-5 py-2.5 disabled:opacity-60"
       >
-        Send Message
+        {pending ? "Sending..." : "Send Message"}
       </button>
+
+      {ok && (
+        <p className="text-sm text-green-700">
+          Thanks! Your message has been sent.
+        </p>
+      )}
     </form>
   );
 }
