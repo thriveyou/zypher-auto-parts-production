@@ -59,7 +59,7 @@ export default function ContactForm() {
           id="name"
           name="name"
           type="text"
-          placeholder="John Doe"
+          placeholder="Zypher Customer"
           className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-black"
           required
           onBlur={handleFieldValidate}

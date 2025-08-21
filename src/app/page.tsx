@@ -6,7 +6,6 @@ import OrderCTA from '@/components/OrderCta';
 import HowItWorks from '@/components/How-it-works';
 import PartsShowcaseHeader from '@/components/PartsHeader';
 import PartsShowcaseGrid from '@/components/Showcase-grid';
-import Footer from '@/components/Footer';
 
 export default function Page() {
   return (
@@ -18,7 +17,6 @@ export default function Page() {
       <HowItWorks />
       <PartsShowcaseHeader />
       <PartsShowcaseGrid />
-      <Footer />
 
 
     </main>

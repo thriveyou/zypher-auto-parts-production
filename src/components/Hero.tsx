@@ -41,18 +41,18 @@ export default function Hero() {
 
             <p className="mt-4 max-w-md md:max-w-xl xl:max-w-xl 
                            text-base md:text-lg xl:text-xl text-slate-600">
-              Car &amp; bike parts sourced in Japan and shipped straight to your doorstep in Sri Lanka — 
-              fast, safe, and affordable
+              Car &amp; bike parts sourced in Japan and shipped straight to your doorstep in Sri Lanka. 
+              Fast, safe, and affordable
             </p>
 
             <div className="mt-6">
               <a
-                href="https://wa.me/94767115861?text=Hi!%20I%20want%20to%20order%20a%20vehicle%20part."
+                href="https://wa.me/94767115861?text=Hi!%20I%20want%20to%20get%20a%20quotation%20."
                 className="inline-flex items-center gap-2 md:gap-3 rounded-lg
                            px-4 py-2 md:px-8 md:py-4
                            text-sm md:text-lg xl:text-xl
                            text-white shadow hover:opacity-95
-                           bg-gradient-to-r from-[#1ABA1A] to-[#00A975] whitespace-nowrap"
+                           bg-gradient-to-r from-[#9A0111] to-[#551e23] whitespace-nowrap"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

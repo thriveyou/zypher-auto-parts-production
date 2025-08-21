@@ -6,8 +6,8 @@ import Link from "next/link";
 import logo from "@/assets/Zypher.png";
 
 const nav = [
-  { href: "/", label: "HOMES" },
-  { href: "/about", label: "ABOUT US" },
+  { href: "/", label: "HOME" },
+  { href: "/About-Us", label: "ABOUT US" },
   { href: "/#products", label: "PRODUCTS" },
   { href: "/Contact-Us", label: "CONTACT" },
 ];

@@ -17,7 +17,7 @@ export default function TopBar() {
 
           <div className="flex items-center gap-2">
             <a
-              href="mailto:support@yourdomain.com"
+              href="mailto:zypherauto@gmail.com"
               aria-label="Email support"
               className="p-1 rounded hover:bg-slate-100 transition"
             >
@@ -41,7 +41,7 @@ export default function TopBar() {
               Hotline 24/7
             </span>
             <span>(076) 711 5861</span>
-            <span>Email: support@yourdomain.com</span>
+            <span>Email: zypherauto@gmail.com</span>
           </div>
 
           <div className="flex items-center gap-1">

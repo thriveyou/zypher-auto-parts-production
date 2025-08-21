@@ -3,6 +3,7 @@ import "./globals.css";
 import { poppins } from "@/styles/fonts";
 import Topbar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Topbar />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

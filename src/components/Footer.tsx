@@ -4,7 +4,7 @@ import logo from "@/assets/Zypher.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#4B0008] text-white py-8 md:py-10">
+    <footer className="bg-[#4B0008] text-white py-8 md:py-8">
       <div
         className="
           mx-4 md:mx-8 xl:mx-auto
@@ -66,6 +66,22 @@ export default function Footer() {
           </div>
         </div>
 
+
+        <div className="md:mt-3 mt-6 flex justify-center">
+          <h4 className="w-full text-center text-sm">
+            Powered by{" "}
+            <a
+              href="https://www.thrivesolutions.digital/"
+              className="inline-block"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="rounded bg-[#551e23] py-1 px-2 ml-1 font-bold text-white hover:bg-[#6b2329]">
+                Thrive
+              </span>
+            </a>
+          </h4>
+        </div>
       </div>
     </footer>
   );

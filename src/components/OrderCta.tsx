@@ -30,7 +30,7 @@ export default function OrderCTA() {
                   text-sm sm:text-base md:text-sm xl:text-base
                 "
               >
-                Click below to send us your request instantly on WhatsApp — fast, easy, and direct.
+                Click below to send us your request instantly on WhatsApp. Fast, easy, and direct.
               </p>
             </div>
 
