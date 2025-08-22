@@ -1,6 +1,6 @@
 export default function OrderCTA() {
   const waNumber = "94767115861";
-  const waText = encodeURIComponent("Hi! I want to order a vehicle part.");
+  const waText = encodeURIComponent("Hi! I want to get a quotation.");
 
   return (
     <section className="w-full py-10 sm:py-12">
