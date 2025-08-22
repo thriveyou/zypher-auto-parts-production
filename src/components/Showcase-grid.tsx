@@ -2,7 +2,8 @@ import Image, { StaticImageData } from "next/image";
 
 import part1 from "@/assets/vezel-gearbox.png";
 import part2 from "@/assets/yamaha-headlight.png";
-import part3 from "@/assets/aqua-battery.png";
+import part3 from "@/assets/prius-suspension-kit.jpg";
+
 
 type Item = {
   img: StaticImageData;
@@ -13,7 +14,7 @@ type Item = {
 const items: Item[] = [
   { img: part1, title: "Honda Vezel Gearbox", subtitle: "Delivered to Colombo" },
   { img: part2, title: "Yamaha MT-25 Headlight", subtitle: "Delivered to Colombo" },
-  { img: part3, title: "Toyota Aqua Hybrid Battery", subtitle: "Delivered to Colombo" },
+  { img: part3, title: "Toyota Prius Suspension Kit", subtitle: "Delivered to Colombo" },
 ];
 
 export default function PartsShowcaseGrid() {
