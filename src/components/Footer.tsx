@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaFacebookF, FaXTwitter, FaInstagram, FaYoutube } from "react-icons/fa6";
+import { FaFacebookF,  FaInstagram,  FaTiktok } from "react-icons/fa6";
 import logo from "@/assets/Zypher.png";
 
 export default function Footer() {
@@ -35,33 +35,27 @@ export default function Footer() {
             </span>
             <div className="flex gap-2.5 md:gap-3">
               <a
-                href="#"
+                href="https://www.facebook.com/share/12HyqbrRiZu/?mibextid=wwXIfr"
                 aria-label="Facebook"
                 className="rounded-full bg-[#551e23] p-2 md:p-2.5 hover:bg-[#6b2329] transition"
               >
                 <FaFacebookF className="h-4 w-4 md:h-4 md:w-4" />
               </a>
               <a
-                href="#"
-                aria-label="X (Twitter)"
+                href="https://www.tiktok.com/@zypherauto?_t=ZS-8z34FuXHY51&_r=1"
+                aria-label="Tik Tok"
                 className="rounded-full bg-[#551e23] p-2 md:p-2.5 hover:bg-[#6b2329] transition"
               >
-                <FaXTwitter className="h-4 w-4 md:h-4 md:w-4" />
+                <FaTiktok className="h-4 w-4 md:h-4 md:w-4" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/zypherauto?igsh=MWR5bjVncTYyd3A4eg=="
                 aria-label="Instagram"
                 className="rounded-full bg-[#551e23] p-2 md:p-2.5 hover:bg-[#6b2329] transition"
               >
                 <FaInstagram className="h-4 w-4 md:h-4 md:w-4" />
               </a>
-              <a
-                href="#"
-                aria-label="YouTube"
-                className="rounded-full bg-[#551e23] p-2 md:p-2.5 hover:bg-[#6b2329] transition"
-              >
-                <FaYoutube className="h-4 w-4 md:h-4 md:w-4" />
-              </a>
+             
             </div>
           </div>
         </div>
