@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaFacebookF,  FaInstagram,  FaTiktok } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6";
 import logo from "@/assets/Zypher.png";
 
 export default function Footer() {
@@ -37,29 +37,33 @@ export default function Footer() {
               <a
                 href="https://www.facebook.com/share/12HyqbrRiZu/?mibextid=wwXIfr"
                 aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-[#551e23] p-2 md:p-2.5 hover:bg-[#6b2329] transition"
               >
                 <FaFacebookF className="h-4 w-4 md:h-4 md:w-4" />
               </a>
               <a
-                href="https://www.tiktok.com/@zypherauto?_t=ZS-8z34FuXHY51&_r=1"
-                aria-label="Tik Tok"
+                href="https://www.tiktok.com/@zypherauto"
+                aria-label="TikTok"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-[#551e23] p-2 md:p-2.5 hover:bg-[#6b2329] transition"
               >
                 <FaTiktok className="h-4 w-4 md:h-4 md:w-4" />
               </a>
               <a
-                href="https://www.instagram.com/zypherauto?igsh=MWR5bjVncTYyd3A4eg=="
+                href="https://www.instagram.com/zypherauto"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-[#551e23] p-2 md:p-2.5 hover:bg-[#6b2329] transition"
               >
                 <FaInstagram className="h-4 w-4 md:h-4 md:w-4" />
               </a>
-             
             </div>
           </div>
         </div>
-
 
         <div className="md:mt-3 mt-6 flex justify-center">
           <h4 className="w-full text-center text-sm">
