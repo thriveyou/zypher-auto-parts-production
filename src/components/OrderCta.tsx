@@ -1,5 +1,5 @@
 export default function OrderCTA() {
-  const waNumber = "94767115861";
+  const waNumber = "94740104228";
   const waText = encodeURIComponent("Hi! I want to get a quotation.");
 
   return (
@@ -58,7 +58,7 @@ export default function OrderCTA() {
                   text-base md:text-lg xl:text-2xl
                 "
               >
-                (+94) 767 115 861
+                (+94) 740 104 228
               </div>
               <div
                 className="

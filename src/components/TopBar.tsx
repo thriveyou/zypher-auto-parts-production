@@ -11,7 +11,7 @@ export default function TopBar() {
               href="tel:+94767115861"
               className="underline-offset-2 hover:underline whitespace-nowrap"
             >
-               (076) 711 5861
+               (074) 010 4228
             </a>
           </div>
 
@@ -40,7 +40,7 @@ export default function TopBar() {
             <span className="rounded-full bg-[#FFE8E8] text-[#ff3b30] px-3 py-1 font-semibold">
               Hotline 24/7
             </span>
-            <span>(076) 711 5861</span>
+            <span>(074) 010 4228</span>
             <span>Email: zypherauto@gmail.com</span>
           </div>
 
