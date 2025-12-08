@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import logo from "@/assets/Zypher.png";
+import logo from "@/assets/zypher-2.png";
 
 const nav = [
   { href: "/", label: "HOME" },
@@ -20,10 +20,10 @@ export default function Navbar() {
   return (
     <div className="mx-4 md:mx-16 xl:mx-28 px-4 md:px-8 xl:px-12 mt-3 md:mt-4">
       <div className="flex items-center justify-between rounded-xl shadow bg-[#9A0111] h-16 md:h-20 xl:h-28 px-4 md:px-6">
-        <Link href="/" aria-label="Zypher Auto Parts" className="shrink-0">
+        <Link href="/" aria-label="Zypher Imports" className="shrink-0">
           <Image
             src={logo}
-            alt="Zypher Auto Parts"
+            alt="Zypher Imports"
             width={180}
             height={52}
             className="h-8 md:h-10 xl:h-12 w-auto"

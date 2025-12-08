@@ -33,7 +33,7 @@ export async function POST(req: Request) {
 
     const html = `
       <div style="font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:14px;line-height:1.6">
-        <h2>Zypher Auto Parts — New Contact Form Submission</h2>
+        <h2>Zypher Imports — New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${escapeHtml(name)}</p>
         <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
         <p><strong>Message:</strong><br/>${escapeHtml(message).replace(/\n/g, "<br/>")}</p>

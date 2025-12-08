@@ -12,7 +12,7 @@ export default function AboutUs() {
             About Us
           </h2>
           <p className={`${saira.className} text-slate-600 max-w-3xl mx-auto`}>
-            Zypher Auto Parts is your trusted link to genuine vehicle parts,
+            Zypher Imports is your trusted link to genuine vehicle parts,
             directly sourced from Japan and delivered safely to your doorstep in
             Sri Lanka.
           </p>
@@ -46,7 +46,7 @@ export default function AboutUs() {
         <div className="space-y-4">
           <h3 className={`${saira.className} text-[#9A0111] text-2xl`}>Our Team</h3>
           <p className="text-lg leading-relaxed">
-            Zypher Auto Parts operates with two dedicated teams – one based in
+            Zypher Imports operates with two dedicated teams – one based in
             Japan and the other in Sri Lanka.
           </p>
           <ul className="list-disc list-inside space-y-2 text-lg">
@@ -86,7 +86,7 @@ export default function AboutUs() {
           <p className="text-lg leading-relaxed">
             We’re committed to making high-quality vehicle parts accessible to
             everyone in Sri Lanka. Whether you&apos;re an individual buyer or a
-            workshop owner, Zypher Auto Parts is here to provide you with a
+            workshop owner, Zypher Imports is here to provide you with a
             smooth, secure, and satisfying experience.
           </p>
         </div>

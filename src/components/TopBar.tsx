@@ -2,22 +2,32 @@ export default function TopBar() {
   return (
     <div className="text-slate-600">
       <div className="mx-4 md:mx-8 lg:mx-16 xl:mx-28 px-4 md:px-6 lg:px-8 xl:px-12 py-2.5 md:py-3 lg:py-4">
+        {/* Mobile / Tablet */}
         <div className="flex items-center justify-between lg:hidden text-xs sm:text-sm">
           <div className="flex items-center gap-3">
             <span className="rounded-full bg-[#FFE8E8] text-[#ff3b30] px-2 py-0.5 font-semibold whitespace-nowrap">
               Hotline 24/7
             </span>
-            <a
-              href="tel:+94767115861"
-              className="underline-offset-2 hover:underline whitespace-nowrap"
-            >
-               (074) 010 4228
-            </a>
+            <div className="flex items-center gap-2 whitespace-nowrap">
+              <a
+                href="tel:+94701007202"
+                className="underline-offset-2 hover:underline"
+              >
+                +94 70 100 7202
+              </a>
+              /
+              <a
+                href="tel:+817091117384"
+                className="underline-offset-2 hover:underline"
+              >
+                +81 70-9111-7384
+              </a>
+            </div>
           </div>
 
           <div className="flex items-center gap-2">
             <a
-              href="mailto:zypherauto@gmail.com"
+              href="mailto:zypherimports@gmail.com"
               aria-label="Email support"
               className="p-1 rounded hover:bg-slate-100 transition"
             >
@@ -35,13 +45,16 @@ export default function TopBar() {
             </button>
           </div>
         </div>
+
+        {/* Desktop */}
         <div className="hidden lg:flex items-center justify-between text-base">
           <div className="flex items-center gap-8">
             <span className="rounded-full bg-[#FFE8E8] text-[#ff3b30] px-3 py-1 font-semibold">
               Hotline 24/7
             </span>
-            <span>(074) 010 4228</span>
-            <span>Email: zypherauto@gmail.com</span>
+            <span>+94 70 100 7202</span>
+            <span>+81 70-9111-7384</span>
+            <span>Email: zypherimports@gmail.com</span>
           </div>
 
           <div className="flex items-center gap-1">

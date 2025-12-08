@@ -47,7 +47,7 @@ export default function Hero() {
 
             <div className="mt-6">
               <a
-                href="https://wa.me/94740104228?text=Hi!%20I%20want%20to%20get%20a%20quotation%20."
+                href="https://wa.me/817091117384?text=Hi!%20I%20want%20to%20get%20a%20quotation%20." target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 md:gap-3 rounded-lg
                            px-4 py-2 md:px-8 md:py-4
                            text-sm md:text-lg xl:text-xl

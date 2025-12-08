@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6";
-import logo from "@/assets/Zypher.png";
+import logo from "@/assets/zypher-2.png";
 
 export default function Footer() {
   return (

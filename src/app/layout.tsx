@@ -9,14 +9,14 @@ import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: {
-    default: "Zypher Auto Parts – Genuine Japanese Vehicle Parts in Sri Lanka",
-    template: "%s | Zypher Auto Parts",
+    default: "Zypher Imports – Genuine Japanese Vehicle Parts in Sri Lanka",
+    template: "%s | Zypher Imports",
   },
   description:
-    "Zypher Auto Parts supplies genuine Japanese car and bike parts in Sri Lanka. OEM verified, direct import, fast delivery.",
+    "Zypher Imports supplies genuine Japanese car and bike parts in Sri Lanka. OEM verified, direct import, fast delivery.",
   keywords: [
-    "Zypher Auto Parts",
-    "Japanese auto parts Sri Lanka",
+    "Zypher Imports",
+    "Japanese Imports Sri Lanka",
     "genuine car parts",
     "bike parts direct from Japan",
     "OEM vehicle parts Sri Lanka",

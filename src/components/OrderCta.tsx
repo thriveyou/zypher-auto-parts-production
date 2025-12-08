@@ -1,5 +1,5 @@
 export default function OrderCTA() {
-  const waNumber = "94740104228";
+  const waNumber = "817091117384";
   const waText = encodeURIComponent("Hi! I want to get a quotation.");
 
   return (
