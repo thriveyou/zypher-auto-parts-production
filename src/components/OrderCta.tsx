@@ -58,7 +58,7 @@ export default function OrderCTA() {
                   text-base md:text-lg xl:text-2xl
                 "
               >
-                (+94) 740 104 228
+                +81 70-9111-7384
               </div>
               <div
                 className="
