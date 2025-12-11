@@ -57,7 +57,7 @@ export default function TopBar() {
             <span>Email: zypherimports@gmail.com</span>
           </div>
 
-          <div className="flex items-center gap-1">
+          {/* <div className="flex items-center gap-1">
             <span className="text-slate-500">Categories:</span>
             <button className="inline-flex items-center gap-1 px-2 py-1 rounded hover:bg-slate-100 transition">
               <span>All</span>
@@ -65,7 +65,7 @@ export default function TopBar() {
                 <path d="M5 7l5 6 5-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
             </button>
-          </div>
+          </div> */}
         </div>
 
       </div>
