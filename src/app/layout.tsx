@@ -68,7 +68,7 @@ const jsonLd = {
   "@type": "AutomotiveBusiness",
   name: "Zypher Imports",
   url: "https://www.zypherimports.lk",
-  telephone: ["+94701007202", "+817091117384"],
+  telephone: ["+94728000516", "+817091117384"],
   areaServed: "Sri Lanka",
   description:
     "Zypher Imports supplies genuine Japanese car and bike parts in Sri Lanka. Direct sourcing from Japan with OEM verification and fast delivery.",

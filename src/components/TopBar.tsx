@@ -10,10 +10,10 @@ export default function TopBar() {
             </span>
             <div className="flex items-center gap-2 whitespace-nowrap">
               <a
-                href="tel:+94701007202"
+                href="tel:+94728000516"
                 className="underline-offset-2 hover:underline"
               >
-                +94 70 100 7202
+                +94 72 8000 516
               </a>
               /
               <a
@@ -52,7 +52,7 @@ export default function TopBar() {
             <span className="rounded-full bg-[#FFE8E8] text-[#ff3b30] px-3 py-1 font-semibold">
               Hotline 24/7
             </span>
-            <span>+94 70 100 7202</span>
+            <span>+94 72 8000 516</span>
             <span>+81 70-9111-7384</span>
             <span>Email: zypherimports@gmail.com</span>
           </div>

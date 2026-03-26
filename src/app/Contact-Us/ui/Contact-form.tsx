@@ -109,7 +109,7 @@ export default function ContactForm() {
           name="phone"
           type="tel"
           inputMode="tel"
-          placeholder="+94 71 234 5678"
+          placeholder="+94 72 8000 516"
           className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-black"
           required
           onBlur={handleFieldValidate}

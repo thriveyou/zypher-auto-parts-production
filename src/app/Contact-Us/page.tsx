@@ -37,7 +37,7 @@ export default function ContactPage() {
 
               <div className="mt-2 flex flex-wrap items-center gap-2">
                 <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700">
-                  +94 70 100 7202
+                  +94 72 8000 516
                 </span>
                 <span className="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
                   Usually replies quickly
