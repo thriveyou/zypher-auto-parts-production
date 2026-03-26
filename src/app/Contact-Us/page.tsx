@@ -1,7 +1,7 @@
 import ContactForm from "./ui/Contact-form";
 
 export default function ContactPage() {
-  const whatsappNumber = "94701007202";
+  const whatsappNumber = "94728000516";
   const whatsappText = encodeURIComponent(
     "Hi Zypher Imports, I need help with vehicle parts. Please assist.",
   );
