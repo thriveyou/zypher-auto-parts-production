@@ -52,9 +52,27 @@ export default function TopBar() {
             <span className="rounded-full bg-[#FFE8E8] text-[#ff3b30] px-3 py-1 font-semibold">
               Hotline 24/7
             </span>
-            <span>+94 72 8000 516</span>
-            <span>+81 70-9111-7384</span>
-            <span>Email: zypherimports@gmail.com</span>
+
+            <a
+              href="tel:+94728000516"
+              className="underline-offset-2 hover:underline"
+            >
+              +94 72 8000 516
+            </a>
+
+            <a
+              href="tel:+817091117384"
+              className="underline-offset-2 hover:underline"
+            >
+              +81 70-9111-7384
+            </a>
+
+            <a
+              href="mailto:zypherimports@gmail.com"
+              className="underline-offset-2 hover:underline"
+            >
+              Email: zypherimports@gmail.com
+            </a>
           </div>
 
           {/* <div className="flex items-center gap-1">
@@ -67,7 +85,6 @@ export default function TopBar() {
             </button>
           </div> */}
         </div>
-
       </div>
     </div>
   );
