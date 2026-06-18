@@ -1,23 +1,32 @@
 import Image from "next/image";
-import logoIsuzu from "@/assets/logo-isuzu.png";
-import logoPorsche from "@/assets/logo-porsche.png";
-import logoDacia from "@/assets/logo-dacia.png";
-import logoPeugeot from "@/assets/logo-peugeot.png";
-import logoHonda from "@/assets/logo-honda.png";
-import logoTesla from "@/assets/logo-tesla.png";
+import toyota from "@/assets/toyota.svg";
+import lexus from "@/assets/lexus.svg";
+import mazda from "@/assets/mazda.svg";
+import subaru from "@/assets/subaru.svg";
+import nissan from "@/assets/nissan.svg";
+import suzuki from "@/assets/suzuki.svg";
+import mitsubishi from "@/assets/mitsubishi.svg";
+import daihatsu from "@/assets/daihatsu.svg";
+import infiniti from "@/assets/infiniti.svg";
 
 const logos = [
-  { src: logoIsuzu, alt: "Isuzu" },
-  { src: logoPorsche, alt: "Porsche" },
-  { src: logoDacia, alt: "Dacia" },
-  { src: logoPeugeot, alt: "Peugeot" },
-  { src: logoHonda, alt: "Honda" },
-  { src: logoTesla, alt: "Tesla" },
+  { src: toyota, alt: "Toyota" },
+  { src: lexus, alt: "Lexus" },
+  { src: mazda, alt: "Mazda" },
+  { src: subaru, alt: "Subaru" },
+  { src: nissan, alt: "Nissan" },
+  { src: suzuki, alt: "Suzuki" },
+  { src: mitsubishi, alt: "Mitsubishi" },
+  { src: daihatsu, alt: "Daihatsu" },
+  { src: infiniti, alt: "Infiniti" },
 ];
 
-function Row() {
+function Row({ ariaHidden = false }: { ariaHidden?: boolean }) {
   return (
-    <div className="inline-flex items-center whitespace-nowrap shrink-0 flex-none">
+    <div
+      className="inline-flex items-center whitespace-nowrap shrink-0 flex-none"
+      aria-hidden={ariaHidden}
+    >
       {logos.map((l, i) => (
         <div
           key={i}
@@ -59,7 +68,7 @@ export default function LogoSection() {
                         flex items-center">
           <div className="flex w-[200%] animate-[marqueeRight_25s_linear_infinite] will-change-transform">
             <Row />
-            <Row aria-hidden />
+            <Row ariaHidden />
           </div>
         </div>
       </div>

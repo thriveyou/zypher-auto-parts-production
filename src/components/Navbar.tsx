@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import logo from "@/assets/zypher-2.png";
+import logo from "@/assets/logo-no-bg-cropped.png";
 
 const nav = [
   { href: "/", label: "HOME" },
@@ -12,6 +12,8 @@ const nav = [
   { href: "/#products", label: "PRODUCTS" },
   { href: "/Contact-Us", label: "CONTACT" },
 ];
+
+const partsPortalUrl = "https://parts.zypherimports.lk/";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -24,16 +26,16 @@ export default function Navbar() {
           <Image
             src={logo}
             alt="Zypher Imports"
-            width={180}
-            height={52}
-            className="h-8 md:h-10 xl:h-12 w-auto"
+            width={260}
+            height={147}
+            className="h-10 md:h-12 xl:h-16 w-auto object-contain"
             priority
           />
         </Link>
 
 
         <nav aria-label="Main" className="ml-4 md:ml-6 hidden lg:block">
-          <ul className="flex flex-wrap items-center justify-end gap-x-6 xl:gap-x-8 text-sm md:text-base font-semibold">
+          <ul className="flex flex-wrap items-center justify-end gap-x-5 xl:gap-x-7 text-sm md:text-base font-semibold">
             {nav.map((item) => {
               const isActive = pathname === item.href; 
               return (
@@ -49,6 +51,16 @@ export default function Navbar() {
                 </li>
               );
             })}
+            <li>
+              <a
+                href={partsPortalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-lg bg-white px-4 py-2 font-bold text-[#9A0111] shadow-sm transition hover:bg-white/90"
+              >
+                REQUEST A PART
+              </a>
+            </li>
           </ul>
         </nav>
 
@@ -98,6 +110,17 @@ export default function Navbar() {
                   </li>
                 );
               })}
+              <li>
+                <a
+                  href={partsPortalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 flex items-center justify-center rounded-lg bg-white px-3 py-3 text-[#9A0111] transition hover:bg-white/90"
+                  onClick={() => setOpen(false)}
+                >
+                  REQUEST A PART
+                </a>
+              </li>
             </ul>
           </nav>
         </div>

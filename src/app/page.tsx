@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import LogoSection from "@/components/LogoSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import OrderCTA from "@/components/OrderCta";
+import PartsRequestSection from "@/components/PartsRequestSection";
 import HowItWorks from "@/components/How-it-works";
 import PartsShowcaseHeader from "@/components/PartsHeader";
 import PartsShowcaseGrid from "@/components/Showcase-grid";
@@ -77,6 +78,7 @@ export default function Page() {
       <LogoSection />
       <FeaturesSection />
       <OrderCTA />
+      <PartsRequestSection />
       <HowItWorks />
       <PartsShowcaseHeader />
       <PartsShowcaseGrid />

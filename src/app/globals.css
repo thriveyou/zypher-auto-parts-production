@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --color-zypher-red: #9A0111;
+}
+
 html, body { overflow-x: hidden; }
 
 html {
