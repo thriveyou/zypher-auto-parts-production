@@ -48,7 +48,7 @@ export default function Features() {
               Fast Shipping
             </h3>
             <p className="mt-1 text-sm md:text-sm xl:text-base text-gray-600">
-              From Japan to Sri Lanka in as little as 10–14 days.
+              From Japan to Sri Lanka in as little as 10-14 days.
             </p>
           </div>
         </div>

@@ -1,7 +1,7 @@
 export default function TopBar() {
   return (
     <div className="text-slate-600">
-      <div className="mx-4 md:mx-8 lg:mx-16 xl:mx-28 px-4 md:px-6 lg:px-8 xl:px-12 py-2.5 md:py-3 lg:py-4">
+      <div className="site-container py-2.5 md:py-3 lg:py-4">
         {/* Mobile / Tablet */}
         <div className="flex items-center justify-between lg:hidden text-xs sm:text-sm">
           <div className="flex items-center gap-3">

@@ -1,4 +1,32 @@
+import type { Metadata } from "next";
+import { pageMetadata, siteConfig } from "@/lib/seo";
 import ContactForm from "./ui/Contact-form";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Contact Zypher Imports",
+  description:
+    "Contact Zypher Imports in Sri Lanka by WhatsApp or form to request genuine Japanese vehicle parts, quotations, availability, and order support.",
+  path: "/Contact-Us",
+});
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${siteConfig.url}/Contact-Us#contact`,
+  url: `${siteConfig.url}/Contact-Us`,
+  name: "Contact Zypher Imports",
+  description:
+    "Contact Zypher Imports for Japanese car and bike parts quotations, availability checks, and order support.",
+  isPartOf: {
+    "@id": `${siteConfig.url}/#website`,
+  },
+  about: {
+    "@id": `${siteConfig.url}/#business`,
+  },
+  mainEntity: {
+    "@id": `${siteConfig.url}/#business`,
+  },
+};
 
 export default function ContactPage() {
   const whatsappNumber = "94728000516";
@@ -8,7 +36,11 @@ export default function ContactPage() {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 
   return (
-    <main className="max-w-3xl min-h-screen mx-auto px-10 py-24">
+    <main className="site-container-narrow min-h-screen py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
       <h1 className="text-3xl md:text-4xl text-[#9A0111] font-semibold mb-2">
         Contact Us
       </h1>
@@ -16,13 +48,12 @@ export default function ContactPage() {
         Questions about parts, availability, or an order? Send us a message.
       </p>
 
-      {/* WhatsApp Card */}
       <div className="mb-10 rounded-2xl border bg-white p-5 shadow-sm">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50">
-              <span className="text-2xl" aria-hidden>
-                💬
+              <span className="text-sm font-semibold text-green-700" aria-hidden>
+                WA
               </span>
             </div>
 

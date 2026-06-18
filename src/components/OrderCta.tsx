@@ -4,7 +4,7 @@ export default function OrderCTA() {
 
   return (
     <section className="w-full py-10 sm:py-12">
-      <div className="mx-4 sm:mx-8 lg:mx-16 xl:mx-28 px-4 sm:px-6 lg:px-8 xl:px-12">
+      <div className="site-container">
         <div
           className="
             w-full rounded-2xl shadow

@@ -4,19 +4,18 @@ import { poppins } from "@/styles/fonts";
 import Topbar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/next"
-
-const siteUrl = "https://www.zypherimports.lk";
+import { Analytics } from "@vercel/analytics/next";
+import { defaultOgImage, siteConfig, siteJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Zypher Imports | Genuine Japanese Vehicle Parts in Sri Lanka",
-    template: "%s | Zypher Imports",
+    default: `${siteConfig.name} | Genuine Japanese Vehicle Parts in Sri Lanka`,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "Zypher Imports supplies genuine Japanese car and bike parts in Sri Lanka. OEM verified, direct import, fast delivery with smooth customs and doorstep delivery.",
-  applicationName: "Zypher Imports",
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  category: "auto parts",
   alternates: {
     canonical: "/",
   },
@@ -33,26 +32,17 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: siteUrl,
-    siteName: "Zypher Imports",
-    title: "Zypher Imports | Genuine Japanese Vehicle Parts in Sri Lanka",
-    description:
-      "Genuine Japanese car and bike parts, sourced from Japan, OEM verified, shipped fast to Sri Lanka.",
-    images: [
-      {
-        url: "/og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Zypher Imports - Genuine Japanese Vehicle Parts in Sri Lanka",
-      },
-    ],
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: `${siteConfig.name} | Genuine Japanese Vehicle Parts in Sri Lanka`,
+    description: siteConfig.description,
+    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zypher Imports | Genuine Japanese Vehicle Parts in Sri Lanka",
-    description:
-      "Genuine Japanese car and bike parts, sourced from Japan, OEM verified, shipped fast to Sri Lanka.",
-    images: ["/og.jpg"],
+    title: `${siteConfig.name} | Genuine Japanese Vehicle Parts in Sri Lanka`,
+    description: siteConfig.description,
+    images: [defaultOgImage.url],
   },
   keywords: [
     "Zypher Imports",
@@ -60,18 +50,11 @@ export const metadata: Metadata = {
     "Japanese car parts Sri Lanka",
     "bike parts Sri Lanka",
     "OEM parts Sri Lanka",
+    "Japanese spare parts Sri Lanka",
+    "car spare parts Sri Lanka",
+    "motorbike parts Sri Lanka",
     "import vehicle parts Japan to Sri Lanka",
   ],
-};
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "AutomotiveBusiness",
-  name: "Zypher Imports",
-  url: "https://www.zypherimports.lk",
-  telephone: ["+94728000516", "+817091117384"],
-  areaServed: "Sri Lanka",
-  description:
-    "Zypher Imports supplies genuine Japanese car and bike parts in Sri Lanka. Direct sourcing from Japan with OEM verification and fast delivery.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -86,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
       </body>
     </html>

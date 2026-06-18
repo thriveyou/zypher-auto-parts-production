@@ -22,7 +22,7 @@ function Step({ n, title, text }: { n: string; title: string; text: string }) {
 
 export default function HowItWorks() {
   return (
-    <section className="my-8 mx-4 px-3 md:my-10 md:mx-16 md:px-4 xl:my-10 xl:mx-28 xl:px-4">
+    <section className="site-container my-8 md:my-10 xl:my-10">
       <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8 xl:gap-1">
         <div className="flex items-center justify-center gap-4 md:gap-8 xl:gap-4">
           <span className="rotate-180 [writing-mode:vertical-rl] text-slate-800 font-bold tracking-wide text-3xl md:text-4xl lg:text-5xl xl:text-7xl">

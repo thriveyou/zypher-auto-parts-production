@@ -7,9 +7,7 @@ export default function Footer() {
     <footer className="bg-[#4B0008] text-white py-8 md:py-8">
       <div
         className="
-          mx-4 md:mx-8 xl:mx-auto
-          px-4 md:px-8 xl:px-24
-          max-w-8xl 
+          site-container
         "
       >
         <div

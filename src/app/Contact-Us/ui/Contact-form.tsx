@@ -13,6 +13,7 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [pending, setPending] = useState(false);
   const [ok, setOk] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const formRef = useRef<HTMLFormElement | null>(null);
 
   function validate(form: HTMLFormElement) {
@@ -33,7 +34,7 @@ export default function ContactForm() {
     if (file && file.size > 0) {
       const max = 5 * 1024 * 1024;
       const allowed = ["application/pdf", "image/jpeg", "image/png"];
-      if (file.size > max) nextErrors.attachment = "File must be ≤ 5MB.";
+      if (file.size > max) nextErrors.attachment = "File must be <= 5MB.";
       if (!allowed.includes(file.type))
         nextErrors.attachment = "Allowed types: PDF, JPG, PNG.";
     }
@@ -52,6 +53,7 @@ export default function ContactForm() {
     if (!validate(form)) return;
     setPending(true);
     setOk(false);
+    setSubmitError("");
 
     try {
       const res = await fetch("/api/contact", {
@@ -62,14 +64,14 @@ export default function ContactForm() {
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         if (data?.errors) setErrors(data.errors);
-        throw new Error("Send failed");
+        throw new Error(data?.error || "Send failed");
       }
 
       setOk(true);
       form.reset();
       setErrors({});
     } catch {
-      // You can show a toast or inline error area if you like
+      setSubmitError("Sorry, we could not send your message. Please try WhatsApp instead.");
     } finally {
       setPending(false);
     }
@@ -144,7 +146,7 @@ export default function ContactForm() {
           id="message"
           name="message"
           rows={5}
-          placeholder="Tell us what you need…"
+          placeholder="Tell us what you need..."
           className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-black"
           required
           onBlur={handleFieldValidate}
@@ -168,6 +170,8 @@ export default function ContactForm() {
           Thanks! Your message has been sent.
         </p>
       )}
+
+      {submitError && <p className="text-sm text-red-600">{submitError}</p>}
     </form>
   );
 }

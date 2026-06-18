@@ -18,7 +18,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div className="mx-4 md:mx-16 xl:mx-28 px-4 md:px-8 xl:px-12 mt-3 md:mt-4">
+    <div className="site-container mt-3 md:mt-4">
       <div className="flex items-center justify-between rounded-xl shadow bg-[#9A0111] h-16 md:h-20 xl:h-28 px-4 md:px-6">
         <Link href="/" aria-label="Zypher Imports" className="shrink-0">
           <Image

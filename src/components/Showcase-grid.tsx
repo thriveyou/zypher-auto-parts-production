@@ -30,9 +30,10 @@ export default function PartsShowcaseGrid() {
   return (
     <section id="products"
       className="
-        my-10 mx-4 px-4
-        md:my-12 md:mx-16 md:px-8
-        xl:my-16 xl:mx-28 xl:px-12
+        site-container
+        my-10
+        md:my-12
+        xl:my-16
       "
     >
       <div

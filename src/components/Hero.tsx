@@ -11,7 +11,7 @@ export default function Hero() {
 
   return (
     <section ref={heroRef} className="mt-10">
-      <div className="mx-4 md:mx-16 xl:mx-28 px-4 md:px-6 xl:px-12">
+      <div className="site-container">
         <div
           className="
             grid items-center gap-8
@@ -28,26 +28,34 @@ export default function Hero() {
                          text-4xl md:text-5xl xl:text-7xl"
             >
               Order{" "}
-              <span className={`${saira.className} text-[#9A0111]`}>Genuine</span>{" "}
+              <span className={`${saira.className} text-[#9A0111]`}>
+                Genuine
+              </span>{" "}
               Vehicle
               <br />
               Parts Directly from
               <br />
               <span className="inline-flex items-center gap-5 md:gap-8">
                 <span className="inline-block h-5 w-5 md:h-6 md:w-6 xl:h-8 xl:w-8 rounded-full ring-10 ring-[#eee0e0] bg-[#B41515]" />
-                <span className={`${saira.className} text-[#9A0111]`}>Japan.</span>
+                <span className={`${saira.className} text-[#9A0111]`}>
+                  Japan.
+                </span>
               </span>
             </h1>
 
-            <p className="mt-4 max-w-md md:max-w-xl xl:max-w-xl 
-                           text-base md:text-lg xl:text-xl text-slate-600">
-              Car &amp; bike parts sourced in Japan and shipped straight to your doorstep in Sri Lanka. 
-              Fast, safe, and affordable
+            <p
+              className="mt-4 max-w-md md:max-w-xl xl:max-w-xl 
+                           text-base md:text-lg xl:text-xl text-slate-600"
+            >
+              Car &amp; bike parts sourced in Japan and shipped straight to your
+              doorstep in Sri Lanka. Fast, safe, and affordable
             </p>
 
             <div className="mt-6">
               <a
-                href="https://wa.me/817091117384?text=Hi!%20I%20want%20to%20get%20a%20quotation%20." target="_blank" rel="noopener noreferrer"
+                href="https://wa.me/817091117384?text=Hi!%20I%20want%20to%20get%20a%20quotation%20."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 md:gap-3 rounded-lg
                            px-4 py-2 md:px-8 md:py-4
                            text-sm md:text-lg xl:text-xl
@@ -127,7 +135,7 @@ function HeroAutoBanner({
           setVisible(false);
         }
       },
-      { root: null, threshold: [0, 0.25, 0.4, 0.6, 0.8, 1] }
+      { root: null, threshold: [0, 0.25, 0.4, 0.6, 0.8, 1] },
     );
 
     observer.observe(el);
@@ -147,14 +155,16 @@ function HeroAutoBanner({
             "inline-flex items-center rounded-full border border-slate-200 bg-white",
             "px-4 py-2 text-sm md:text-sm xl:text-base font-medium text-slate-700 shadow-lg",
             "transition-all duration-1000 ease-out",
-            visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none",
-            "hover:shadow-md"
+            visible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-3 pointer-events-none",
+            "hover:shadow-md",
           ].join(" ")}
           aria-haspopup="dialog"
           aria-controls="direct-import-modal"
           aria-hidden={!visible}
         >
-          DIRECT IMPORT – GENUINE ONLY
+          DIRECT IMPORT - GENUINE ONLY
         </button>
       </div>
 

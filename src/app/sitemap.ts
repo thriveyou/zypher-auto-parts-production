@@ -1,27 +1,31 @@
 import type { MetadataRoute } from "next";
+import { absoluteUrl, defaultOgImage, siteConfig } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.zypherimports.lk";
   const lastModified = new Date();
+  const image = absoluteUrl(defaultOgImage.url);
 
   return [
     {
-      url: `${baseUrl}/`,
+      url: `${siteConfig.url}/`,
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
+      images: [image],
     },
     {
-      url: `${baseUrl}/About-Us`,
+      url: `${siteConfig.url}/About-Us`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
+      images: [image],
     },
     {
-      url: `${baseUrl}/Contact-Us`,
+      url: `${siteConfig.url}/Contact-Us`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
+      images: [image],
     },
   ];
 }
