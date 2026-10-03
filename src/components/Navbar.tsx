@@ -9,7 +9,7 @@ import logo from "@/assets/logo-no-bg-cropped.png";
 const nav = [
   { href: "/", label: "HOME" },
   { href: "/About-Us", label: "ABOUT US" },
-  { href: "/#products", label: "PRODUCTS" },
+  { href: "/#products", label: "SHOWCASE" },
   { href: "/#zypher-bikes", label: "ZYPHER BIKES" },
   { href: "/Contact-Us", label: "CONTACT" },
 ];

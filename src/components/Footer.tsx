@@ -13,7 +13,7 @@ import logo from "@/assets/logo-no-bg-cropped.png";
 const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/About-Us", label: "About Us" },
-  { href: "/#products", label: "Parts Showcase" },
+  { href: "/#products", label: "Showcase" },
   { href: "/Contact-Us", label: "Contact" },
 ];
 
