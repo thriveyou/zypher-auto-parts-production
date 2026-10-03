@@ -47,7 +47,7 @@ export default function Page() {
       <FeaturesSection />
       <OrderCTA />
       <HowItWorks />
-      <section id="products" aria-labelledby="parts-showcase-heading">
+      <section id="products" aria-labelledby="parts-showcase-heading" className="scroll-mt-6 bg-white py-14 md:py-20">
         <PartsShowcaseHeader />
         <PartsShowcaseGrid />
       </section>
