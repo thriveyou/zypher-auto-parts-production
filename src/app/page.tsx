@@ -9,6 +9,7 @@ import HowItWorks from "@/components/How-it-works";
 import PartsShowcaseHeader from "@/components/PartsHeader";
 import PartsShowcaseGrid from "@/components/Showcase-grid";
 import ZypherBikes from "@/components/ZypherBikes";
+import GoogleReviews from "@/components/GoogleReviews";
 import { pageMetadata, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -52,6 +53,7 @@ export default function Page() {
         <PartsShowcaseGrid />
       </section>
       <ZypherBikes />
+      <GoogleReviews />
       <PartsRequestSection />
     </main>
   );
