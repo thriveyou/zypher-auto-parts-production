@@ -1,6 +1,10 @@
-import Image, { StaticImageData } from "next/image";
+"use client";
 
-import part1 from "@/assets/vezel-gearbox.png";
+import { useState } from "react";
+import Image, { type StaticImageData } from "next/image";
+import PhotoViewer from "@/components/PhotoViewer";
+
+import dynomaxParts from "@/assets/dynomax-turbo-muffler-parts.jpeg";
 // import part2 from "@/assets/yamaha-headlight.png";
 import part3 from "@/assets/prius-suspension-kit.jpg";
 import part4 from "@/assets/exedy-clutch-parts.jpg";
@@ -12,10 +16,16 @@ type Item = {
   img: StaticImageData;
   title: string;
   subtitle: string;
+  alt?: string;
 };
 
 const items: Item[] = [
-  { img: part1, title: "Honda Vezel Gearbox", subtitle: "Delivered to Colombo" },
+  {
+    img: dynomaxParts,
+    title: "Dynomax Turbo Muffler & Parts",
+    subtitle: "Delivered to Colombo",
+    alt: "Imported Dynomax turbo muffler, BMW touch-up pen and grease displayed on a car bonnet",
+  },
   {
     img: part4,
     title: "Genuine EXEDY Clutch Parts",
@@ -27,6 +37,7 @@ const items: Item[] = [
 ];
 
 export default function PartsShowcaseGrid() {
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   return (
     <div
       className="
@@ -45,22 +56,27 @@ export default function PartsShowcaseGrid() {
       >
         {items.map((it, i) => (
           <article key={i} className="p-3 md:p-4">
-            <div
+            <button
+              type="button"
+              aria-label={`Enlarge ${it.title} photo`}
+              aria-haspopup="dialog"
+              onClick={() => setSelectedItem(it)}
               className="
-                relative w-full overflow-hidden rounded-xl
+                relative block w-full cursor-zoom-in overflow-hidden rounded-xl
                 h-64 sm:h-72 md:h-80 xl:h-96
                 border-1 border-[#9A0111]
+                focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-zypher-red
               "
             >
               <Image
                 src={it.img}
-                alt={it.title}
+                alt={it.alt ?? it.title}
                 fill
                 className="object-cover"
                 sizes="(min-width:1440px) 386px, (min-width:1280px) calc((100vw - 304px) / 3), (min-width:1024px) calc((100vw - 232px) / 3), (min-width:768px) calc((100vw - 160px) / 2), (min-width:640px) calc((100vw - 112px) / 2), calc(100vw - 56px)"
                 loading="lazy"
               />
-            </div>
+            </button>
 
             <h3
               className="
@@ -83,6 +99,13 @@ export default function PartsShowcaseGrid() {
           </article>
         ))}
       </div>
+      {selectedItem && (
+        <PhotoViewer
+          title={selectedItem.title}
+          photos={[{ image: selectedItem.img, alt: selectedItem.alt ?? selectedItem.title }]}
+          onClose={() => setSelectedItem(null)}
+        />
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import BikePhotoViewer from "@/components/BikePhotoViewer";
+import PhotoViewer from "@/components/PhotoViewer";
 import type { Bike } from "@/data/bikes";
 
 export default function BikeCard({ bike }: { bike: Bike }) {
@@ -31,7 +31,6 @@ export default function BikeCard({ bike }: { bike: Bike }) {
           loading="lazy"
           placeholder="blur"
         />
-        <span className="absolute bottom-3 right-3 rounded-md bg-black/65 px-2.5 py-1.5 text-xs font-semibold text-white" aria-hidden="true">View photo ↗</span>
       </button>
       <div className="p-4">
         <h3 className="text-base font-bold text-slate-950">{title}</h3>
@@ -62,7 +61,7 @@ export default function BikeCard({ bike }: { bike: Bike }) {
           </div>
         )}
       </div>
-      {viewerOpen && <BikePhotoViewer bike={bike} initialPhoto={activePhoto} onClose={() => setViewerOpen(false)} />}
+      {viewerOpen && <PhotoViewer title={name} photos={bike.photos} initialPhoto={activePhoto} onClose={() => setViewerOpen(false)} />}
     </article>
   );
 }
