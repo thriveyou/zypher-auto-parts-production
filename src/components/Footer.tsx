@@ -45,10 +45,11 @@ export default function Footer() {
               <Image
                 src={logo}
                 alt="Zypher Imports"
-                width={260}
-                height={147}
+                width={1757}
+                height={990}
+                sizes="(min-width:768px) 170px, 150px"
                 className="h-auto w-[150px] md:w-[170px]"
-                priority
+                loading="lazy"
               />
             </Link>
 
@@ -85,7 +86,7 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="https://parts.zypherimports.lk/"
+                  href="https://parts.zypherimports.lk/request-form"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex rounded-md bg-[#9A0111] px-3 py-2 text-sm font-semibold text-white transition hover:bg-[#b41515]"

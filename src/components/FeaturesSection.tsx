@@ -7,6 +7,7 @@ import icon3 from "@/assets/icon3.png";
 export default function Features() {
   return (
     <section className="w-full bg-white py-10 sm:py-12">
+      <h2 className="sr-only">Why source vehicle parts with Zypher Imports?</h2>
       <div
         className="
           max-w-7xl mx-auto
@@ -20,10 +21,11 @@ export default function Features() {
           <Image
             src={icon1}
             alt="Genuine Parts"
-            width={50}
-            height={50}
-            className="w-10 h-10 md:w-11 md:h-11 xl:w-[50px] xl:h-[50px]"
-            priority
+            width={60}
+            height={61}
+            className="object-contain w-10 h-10 md:w-11 md:h-11 xl:w-[50px] xl:h-[50px]"
+            sizes="(min-width:1280px) 50px, (min-width:768px) 44px, 40px"
+            loading="lazy"
           />
           <div className="text-center sm:text-left">
             <h3 className="font-semibold text-base md:text-base xl:text-lg">
@@ -39,9 +41,11 @@ export default function Features() {
           <Image
             src={icon2}
             alt="Fast Shipping"
-            width={50}
-            height={50}
-            className="w-10 h-10 md:w-11 md:h-11 xl:w-[50px] xl:h-[50px]"
+            width={60}
+            height={61}
+            loading="lazy"
+            className="object-contain w-10 h-10 md:w-11 md:h-11 xl:w-[50px] xl:h-[50px]"
+            sizes="(min-width:1280px) 50px, (min-width:768px) 44px, 40px"
           />
           <div className="text-center sm:text-left">
             <h3 className="font-semibold text-base md:text-base xl:text-lg">
@@ -57,9 +61,11 @@ export default function Features() {
           <Image
             src={icon3}
             alt="Affordable Pricing"
-            width={50}
-            height={50}
-            className="w-10 h-10 md:w-11 md:h-11 xl:w-[50px] xl:h-[50px]"
+            width={60}
+            height={61}
+            loading="lazy"
+            className="object-contain w-10 h-10 md:w-11 md:h-11 xl:w-[50px] xl:h-[50px]"
+            sizes="(min-width:1280px) 50px, (min-width:768px) 44px, 40px"
           />
           <div className="text-center sm:text-left">
             <h3 className="font-semibold text-base md:text-base xl:text-lg">

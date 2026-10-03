@@ -8,12 +8,13 @@ import PartsRequestSection from "@/components/PartsRequestSection";
 import HowItWorks from "@/components/How-it-works";
 import PartsShowcaseHeader from "@/components/PartsHeader";
 import PartsShowcaseGrid from "@/components/Showcase-grid";
-import { absoluteUrl, pageMetadata, siteConfig } from "@/lib/seo";
+import ZypherBikes from "@/components/ZypherBikes";
+import { pageMetadata, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Genuine Japanese Vehicle Parts in Sri Lanka",
+  title: "Japanese Vehicle Parts Sri Lanka | Zypher Imports",
   description:
-    "Order OEM verified Japanese car and bike parts in Sri Lanka. Zypher Imports sources genuine parts from Japan and delivers islandwide.",
+    "Source genuine Japanese car and bike parts with Zypher Imports. Send your vehicle details for a quotation and delivery across Sri Lanka.",
   path: "/",
 });
 
@@ -32,44 +33,11 @@ const homeJsonLd = {
   serviceType: "Vehicle parts sourcing and importing",
   description:
     "OEM verified Japanese car and bike parts sourced from Japan and delivered to customers in Sri Lanka.",
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Vehicle parts available through Zypher Imports",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "Honda Vezel Gearbox",
-          category: "Vehicle transmission parts",
-          image: absoluteUrl("/og.jpg"),
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "Genuine EXEDY Clutch Parts",
-          category: "Vehicle clutch parts",
-          image: absoluteUrl("/og.jpg"),
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "Toyota Prius Suspension Kit",
-          category: "Vehicle suspension parts",
-          image: absoluteUrl("/og.jpg"),
-        },
-      },
-    ],
-  },
 };
 
 export default function Page() {
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
@@ -78,10 +46,13 @@ export default function Page() {
       <LogoSection />
       <FeaturesSection />
       <OrderCTA />
-      <PartsRequestSection />
       <HowItWorks />
-      <PartsShowcaseHeader />
-      <PartsShowcaseGrid />
+      <section id="products" aria-labelledby="parts-showcase-heading">
+        <PartsShowcaseHeader />
+        <PartsShowcaseGrid />
+      </section>
+      <ZypherBikes />
+      <PartsRequestSection />
     </main>
   );
 }

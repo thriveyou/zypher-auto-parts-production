@@ -91,7 +91,7 @@ export default function Hero() {
                     l21.186-23.834c1.766-2.648,2.648-6.179,1.766-8.828l-25.6-57.379C193.324,138.593,190.676,135.945,187.145,135.945"
                   />
                 </svg>
-                ORDER NOW
+                Request a Quote on WhatsApp
               </a>
             </div>
           </div>
@@ -100,11 +100,12 @@ export default function Hero() {
             <Image
               src={heroParts}
               alt="Auto parts box"
-              width={600}
-              height={600}
-              priority
+              width={423}
+              height={636}
+              loading="eager"
+              fetchPriority="high"
               className="h-auto w-[260px] sm:w-[320px] md:w-[380px] xl:w-[600px]"
-              sizes="(min-width:1280px) 600px, (min-width:768px) 45vw, 90vw"
+              sizes="(min-width:1440px) 460px, (min-width:1280px) calc((100vw - 128px) * 0.35), (min-width:856px) 380px, (min-width:768px) calc((100vw - 96px) / 2), (min-width:640px) 320px, 260px"
             />
           </div>
         </div>
@@ -163,6 +164,8 @@ function HeroAutoBanner({
           aria-haspopup="dialog"
           aria-controls="direct-import-modal"
           aria-hidden={!visible}
+          tabIndex={visible ? 0 : -1}
+          aria-expanded={open}
         >
           DIRECT IMPORT - GENUINE ONLY
         </button>

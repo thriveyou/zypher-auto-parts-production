@@ -64,7 +64,7 @@ export async function POST(req: Request) {
 
     const resend = new Resend(apiKey);
 
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: `Zypher Contact <${fromEmail}>`,
       to: toEmail,
       subject: `New message from ${name}`,
@@ -73,11 +73,19 @@ export async function POST(req: Request) {
       attachments,
     });
 
+    if (error || !data?.id) {
+      console.error("Contact email provider did not accept the message.");
+      return NextResponse.json(
+        { ok: false, error: "We could not send your message. Please try again or contact us on WhatsApp." },
+        { status: 502 },
+      );
+    }
+
     return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error(err);
+  } catch {
+    console.error("Contact message submission failed.");
     return NextResponse.json(
-      { ok: false, error: "Failed to send email." },
+      { ok: false, error: "We could not send your message. Please try again or contact us on WhatsApp." },
       { status: 500 },
     );
   }

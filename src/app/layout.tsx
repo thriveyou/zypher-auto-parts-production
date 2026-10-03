@@ -61,6 +61,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={poppins.className}>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[110] focus:rounded focus:bg-white focus:p-3 focus:text-[#9A0111]">
+          Skip to content
+        </a>
         <Topbar />
         <Navbar />
         {children}

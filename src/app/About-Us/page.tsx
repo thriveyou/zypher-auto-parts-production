@@ -11,9 +11,9 @@ import { saira } from "@/styles/fonts";
 import { pageMetadata, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "About Zypher Imports",
+  title: "About Our Japan Parts Sourcing | Zypher Imports",
   description:
-    "Learn how Zypher Imports sources genuine Japanese car and bike parts through teams in Japan and Sri Lanka, with OEM verification and reliable delivery.",
+    "Meet Zypher Imports (Pvt) Ltd and learn how our Japan and Sri Lanka teams source, verify and deliver genuine vehicle parts for local customers.",
   path: "/About-Us",
 });
 
@@ -66,7 +66,7 @@ const values = [
 
 export default function AboutUs() {
   return (
-    <main className="bg-white text-slate-800">
+    <main id="main-content" tabIndex={-1} className="bg-white text-slate-800">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutJsonLd) }}
@@ -137,6 +137,7 @@ export default function AboutUs() {
       </section>
 
       <section className="site-container py-12 md:py-16">
+        <h2 className="sr-only">Our teams in Japan and Sri Lanka</h2>
         <div className="grid gap-8 lg:grid-cols-2">
           <TeamPanel
             icon={FaGlobe}

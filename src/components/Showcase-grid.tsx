@@ -28,7 +28,7 @@ const items: Item[] = [
 
 export default function PartsShowcaseGrid() {
   return (
-    <section id="products"
+    <div
       className="
         site-container
         my-10
@@ -57,8 +57,8 @@ export default function PartsShowcaseGrid() {
                 alt={it.title}
                 fill
                 className="object-cover"
-                sizes="(min-width:1280px) 33vw, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
-                priority={i < 3}
+                sizes="(min-width:1440px) 386px, (min-width:1280px) calc((100vw - 304px) / 3), (min-width:1024px) calc((100vw - 232px) / 3), (min-width:768px) calc((100vw - 160px) / 2), (min-width:640px) calc((100vw - 112px) / 2), calc(100vw - 56px)"
+                loading="lazy"
               />
             </div>
 
@@ -83,6 +83,6 @@ export default function PartsShowcaseGrid() {
           </article>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

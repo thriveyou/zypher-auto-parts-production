@@ -3,9 +3,9 @@ import { pageMetadata, siteConfig } from "@/lib/seo";
 import ContactForm from "./ui/Contact-form";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Contact Zypher Imports",
+  title: "Contact & Parts Quotations Sri Lanka | Zypher Imports",
   description:
-    "Contact Zypher Imports in Sri Lanka for genuine vehicle parts, Japan imports, part availability, and request support.",
+    "Request a quotation for Japanese car or bike parts. Contact Zypher Imports on WhatsApp, call our Sri Lanka team, or send your vehicle and part details.",
   path: "/Contact-Us",
 });
 
@@ -33,10 +33,9 @@ export default function ContactPage() {
     "Hi Zypher Imports, I need help with vehicle parts. Please assist.",
   );
   const japanWhatsappLink = `https://wa.me/817091117384?text=${whatsappText}`;
-  const localWhatsappLink = `https://wa.me/94728000516?text=${whatsappText}`;
 
   return (
-    <main className="site-container-narrow min-h-screen py-24">
+    <main id="main-content" tabIndex={-1} className="site-container-narrow min-h-screen py-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
@@ -74,7 +73,7 @@ export default function ContactPage() {
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="font-semibold text-slate-900">WhatsApp</h3>
-                  <span className="inline-flex items-center rounded-full bg-green-600 px-2.5 py-1 text-xs font-semibold text-white">
+                  <span className="inline-flex items-center rounded-full bg-green-700 px-2.5 py-1 text-xs font-semibold text-white">
                     Main number
                   </span>
                 </div>
@@ -91,7 +90,7 @@ export default function ContactPage() {
                 href={japanWhatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-700 sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-green-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-800 sm:w-auto"
               >
                 <WhatsAppIcon className="h-5 w-5 fill-current" />
                 Message Us on WhatsApp
@@ -112,7 +111,7 @@ export default function ContactPage() {
               </div>
 
               <a
-                href={localWhatsappLink}
+                href="tel:+94728000516"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-green-500 hover:text-green-700 sm:w-auto"

@@ -45,3 +45,28 @@ html {
   0%   { transform: translateX(-50%); } 
   100% { transform: translateX(0); }    
 }
+
+.logo-marquee:hover .logo-marquee-track,
+.logo-marquee:has(input:checked) .logo-marquee-track,
+.logo-marquee:focus-within .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .logo-marquee-track {
+    animation: none !important;
+    transform: none;
+    will-change: auto;
+  }
+}

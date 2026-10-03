@@ -9,9 +9,9 @@ function Step({ n, title, text }: { n: string; title: string; text: string }) {
       </span>
 
       <div className="border-b border-[#FF2B2B] w-3/4 pb-2">
-        <h4 className="font-semibold text-slate-900 text-base md:text-base xl:text-lg">
+        <h3 className="font-semibold text-slate-900 text-base md:text-base xl:text-lg">
           {title}
-        </h4>
+        </h3>
         <p className="text-slate-600 mt-1 text-sm md:text-sm xl:text-base">
           {text}
         </p>
@@ -25,15 +25,17 @@ export default function HowItWorks() {
     <section className="site-container my-8 md:my-10 xl:my-10">
       <div className="grid items-center gap-6 md:grid-cols-2 md:gap-8 xl:gap-1">
         <div className="flex items-center justify-center gap-4 md:gap-8 xl:gap-4">
-          <span className="rotate-180 [writing-mode:vertical-rl] text-slate-800 font-bold tracking-wide text-3xl md:text-4xl lg:text-5xl xl:text-7xl">
-            How it works
-          </span>
+          <h2 className="rotate-180 [writing-mode:vertical-rl] text-slate-800 font-bold tracking-wide text-3xl md:text-4xl lg:text-5xl xl:text-7xl">
+            <span aria-hidden="true">How it works</span>
+            <span className="sr-only">How to order parts from Japan</span>
+          </h2>
           <Image
             src={carTop}
             alt="Top view car"
-            width={320}
-            height={320}
-            priority
+            width={458}
+            height={443}
+            loading="lazy"
+            sizes="(min-width:1280px) 500px, (min-width:768px) 400px, (min-width:640px) 248px, 208px"
             className="
     object-contain
     w-52 h-52        

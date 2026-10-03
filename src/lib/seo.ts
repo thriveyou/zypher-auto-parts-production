@@ -41,7 +41,7 @@ export function pageMetadata({
   const url = absoluteUrl(path);
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: {
       canonical: url,
@@ -74,7 +74,6 @@ export const siteJsonLd = {
       image: absoluteUrl(defaultOgImage.url),
       email: siteConfig.email,
       telephone: siteConfig.phones,
-      priceRange: "$$",
       areaServed: {
         "@type": "Country",
         name: "Sri Lanka",

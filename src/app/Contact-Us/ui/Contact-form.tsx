@@ -2,6 +2,8 @@
 
 import { useRef, useState } from "react";
 
+const whatsappUrl = "https://wa.me/817091117384?text=Hi%20Zypher%20Imports%2C%20I%20need%20help%20with%20vehicle%20parts.";
+
 type Errors = Partial<{
   name: string;
   phone: string;
@@ -16,7 +18,13 @@ export default function ContactForm() {
   const [submitError, setSubmitError] = useState("");
   const formRef = useRef<HTMLFormElement | null>(null);
 
-  function validate(form: HTMLFormElement) {
+  function focusFirstError(form: HTMLFormElement, fieldErrors: Errors) {
+    const first = (["name", "phone", "attachment", "message"] as const)
+      .find((name) => fieldErrors[name]);
+    if (first) form.querySelector<HTMLElement>(`[name="${first}"]`)?.focus();
+  }
+
+  function validate(form: HTMLFormElement, focusErrors = false) {
     const data = new FormData(form);
     const name = (data.get("name") as string)?.trim();
     const phone = (data.get("phone") as string)?.trim();
@@ -40,6 +48,7 @@ export default function ContactForm() {
     }
 
     setErrors(nextErrors);
+    if (focusErrors && Object.keys(nextErrors).length) focusFirstError(form, nextErrors);
     return Object.keys(nextErrors).length === 0;
   }
 
@@ -49,11 +58,12 @@ export default function ContactForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (pending) return;
     const form = e.currentTarget;
-    if (!validate(form)) return;
-    setPending(true);
     setOk(false);
     setSubmitError("");
+    if (!validate(form, true)) return;
+    setPending(true);
 
     try {
       const res = await fetch("/api/contact", {
@@ -61,10 +71,13 @@ export default function ContactForm() {
         body: new FormData(form),
       });
 
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        if (data?.errors) setErrors(data.errors);
-        throw new Error(data?.error || "Send failed");
+      const data = await res.json().catch(() => null);
+      if (!res.ok || data?.ok !== true) {
+        if (data?.errors) {
+          setErrors(data.errors);
+          focusFirstError(form, data.errors);
+        }
+        throw new Error("Message was not accepted");
       }
 
       setOk(true);
@@ -81,8 +94,11 @@ export default function ContactForm() {
     <form
       ref={formRef}
       className="space-y-5"
+      method="post"
+      action="/api/contact"
       encType="multipart/form-data"
       noValidate
+      aria-busy={pending}
       onSubmit={onSubmit}
     >
       <div>
@@ -93,13 +109,16 @@ export default function ContactForm() {
           id="name"
           name="name"
           type="text"
+          autoComplete="name"
+          aria-invalid={!!errors.name}
+          aria-describedby={errors.name ? "name-error" : undefined}
           placeholder="Your name"
           className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-black"
           required
           onBlur={handleFieldValidate}
           onChange={handleFieldValidate}
         />
-        {errors.name && <p className="text-sm text-red-600 mt-1">{errors.name}</p>}
+        {errors.name && <p id="name-error" className="text-sm text-red-700 mt-1">{errors.name}</p>}
       </div>
 
       <div>
@@ -111,13 +130,16 @@ export default function ContactForm() {
           name="phone"
           type="tel"
           inputMode="tel"
+          autoComplete="tel"
+          aria-invalid={!!errors.phone}
+          aria-describedby={errors.phone ? "phone-error" : undefined}
           placeholder="Your contact number"
           className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-black"
           required
           onBlur={handleFieldValidate}
           onChange={handleFieldValidate}
         />
-        {errors.phone && <p className="text-sm text-red-600 mt-1">{errors.phone}</p>}
+        {errors.phone && <p id="phone-error" className="text-sm text-red-700 mt-1">{errors.phone}</p>}
       </div>
 
       <div>
@@ -129,13 +151,15 @@ export default function ContactForm() {
           name="attachment"
           type="file"
           accept=".pdf,.jpg,.jpeg,.png"
+          aria-invalid={!!errors.attachment}
+          aria-describedby={`attachment-help${errors.attachment ? " attachment-error" : ""}`}
           className="w-full rounded-md border px-3 py-2 file:mr-3 file:py-2 file:px-3 file:border-0 file:bg-[#9A0111] file:text-white file:rounded-md"
           onChange={handleFieldValidate}
         />
         {errors.attachment && (
-          <p className="text-sm text-red-600 mt-1">{errors.attachment}</p>
+          <p id="attachment-error" className="text-sm text-red-700 mt-1">{errors.attachment}</p>
         )}
-        <p className="text-xs text-slate-500 mt-1">Max 5MB. PDF, JPG, PNG.</p>
+        <p id="attachment-help" className="text-xs text-slate-500 mt-1">Max 5MB. PDF, JPG, PNG.</p>
       </div>
 
       <div>
@@ -146,6 +170,8 @@ export default function ContactForm() {
           id="message"
           name="message"
           rows={5}
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? "message-error" : undefined}
           placeholder="Tell us what you need..."
           className="w-full rounded-md border px-3 py-2 outline-none focus:ring-2 focus:ring-black"
           required
@@ -153,7 +179,7 @@ export default function ContactForm() {
           onChange={handleFieldValidate}
         />
         {errors.message && (
-          <p className="text-sm text-red-600 mt-1">{errors.message}</p>
+          <p id="message-error" className="text-sm text-red-700 mt-1">{errors.message}</p>
         )}
       </div>
 
@@ -165,13 +191,23 @@ export default function ContactForm() {
         {pending ? "Sending..." : "Send Message"}
       </button>
 
-      {ok && (
-        <p className="text-sm text-green-700">
-          Thanks! Your message has been sent.
-        </p>
-      )}
-
-      {submitError && <p className="text-sm text-red-600">{submitError}</p>}
+      <div role="status" aria-live="polite" aria-atomic="true">
+        {pending && <p className="text-sm text-slate-600">Sending your message...</p>}
+        {ok && <p className="text-sm text-green-800">Thanks! Your message has been accepted for sending. Our team will follow up.</p>}
+      </div>
+      <div role="alert" aria-atomic="true">
+        {submitError && (
+          <p className="text-sm text-red-700">
+            {submitError}{" "}
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="font-semibold underline">
+              Contact us on WhatsApp
+            </a>
+          </p>
+        )}
+      </div>
+      <noscript>
+        <p className="text-sm text-slate-700">JavaScript is needed for form feedback. You can <a href={whatsappUrl} className="underline">contact us on WhatsApp</a> instead.</p>
+      </noscript>
     </form>
   );
 }

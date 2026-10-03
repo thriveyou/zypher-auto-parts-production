@@ -59,7 +59,7 @@ export default function PartsRequestSection() {
               href={partsRequestUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-green-600/20 transition hover:bg-green-700 md:px-6 md:py-3 md:text-base"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-700 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-green-700/20 transition hover:bg-green-800 md:px-6 md:py-3 md:text-base"
             >
               <SparkIcon className="h-4 w-4" />
               Request a Part Online

@@ -29,7 +29,7 @@ export function UtilityBar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat with Zypher Imports on WhatsApp"
-          className="inline-flex items-center gap-2 rounded-md bg-green-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-green-700 sm:text-sm"
+          className="inline-flex items-center gap-2 rounded-md bg-green-700 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-green-800 sm:text-sm"
         >
           <FaWhatsapp className="h-4 w-4" />
           WhatsApp
@@ -55,7 +55,7 @@ function MobileWhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Zypher Imports on WhatsApp"
-      className="fixed bottom-4 right-4 z-50 inline-flex h-[52px] w-[52px] items-center justify-center rounded-full bg-green-600 text-white shadow-lg shadow-green-900/25 transition hover:bg-green-700 sm:hidden"
+      className="fixed bottom-4 right-4 z-50 inline-flex h-[52px] w-[52px] items-center justify-center rounded-full bg-green-700 text-white shadow-lg shadow-green-900/25 transition hover:bg-green-800 sm:hidden"
     >
       <FaWhatsapp className="h-7 w-7" />
     </a>
