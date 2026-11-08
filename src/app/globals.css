@@ -47,7 +47,6 @@ html {
 }
 
 .logo-marquee:hover .logo-marquee-track,
-.logo-marquee:has(input:checked) .logo-marquee-track,
 .logo-marquee:focus-within .logo-marquee-track {
   animation-play-state: paused;
 }

@@ -13,7 +13,7 @@ function load(file, overrides, globals = {}) {
   const exports = {};
   vm.runInNewContext(compiled, {
     exports, require: (name) => overrides[name] ?? require(name),
-    Request, Response, FormData, File, Buffer,
+    Request, Response, FormData, File, Buffer, URL,
     console: { error() {} }, ...globals,
   }, { filename: file });
   return exports;
@@ -21,7 +21,7 @@ function load(file, overrides, globals = {}) {
 
 function request(values = {}) {
   const body = new FormData();
-  for (const [key, value] of Object.entries({ name: "Test Customer", phone: "+94728000516", message: "<part> & details", ...values })) body.set(key, value);
+  for (const [key, value] of Object.entries({ name: "Test Customer", phone: "+94713205555", message: "<part> & details", ...values })) body.set(key, value);
   return new Request("http://localhost/api/contact", { method: "POST", body });
 }
 
@@ -64,7 +64,7 @@ test("invalid fields and unsupported attachment never reach the provider", async
 
 // Exercise the actual component handlers with deterministic hooks and form/fetch
 // adapters. Browser tests separately cover DOM focus, keyboard and layout behavior.
-function client(fetchResult, values = { name: "Test Customer", phone: "+94728000516", message: "Part details" }) {
+function client(fetchResult, values = { name: "Test Customer", phone: "+94713205555", message: "Part details" }) {
   const state = [];
   let cursor = 0;
   const form = {
@@ -76,7 +76,10 @@ function client(fetchResult, values = { name: "Test Customer", phone: "+94728000
     useState(initial) { const i = cursor++; if (!(i in state)) state[i] = initial; return [state[i], (next) => { state[i] = next; }]; },
     useRef() { return { current: form }; },
   };
-  const Component = load("src/app/Contact-Us/ui/Contact-form.tsx", { react: hooks }, {
+  const Component = load("src/app/Contact-Us/ui/Contact-form.tsx", {
+    react: hooks,
+    "@/lib/seo": load("src/lib/seo.ts", {}),
+  }, {
     fetch: fetchResult,
     FormData: class extends FormData { constructor(element) { super(); for (const [key, value] of Object.entries(element.values)) this.set(key, value); } },
   }).default;

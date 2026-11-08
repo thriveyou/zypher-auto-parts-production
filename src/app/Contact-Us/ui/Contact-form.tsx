@@ -1,8 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { siteConfig } from "@/lib/seo";
 
-const whatsappUrl = "https://wa.me/817091117384?text=Hi%20Zypher%20Imports%2C%20I%20need%20help%20with%20vehicle%20parts.";
+const whatsappUrl = `${siteConfig.japanWhatsappUrl}?text=Hi%20Zypher%20Imports%2C%20I%20need%20help%20with%20vehicle%20parts.`;
 
 type Errors = Partial<{
   name: string;

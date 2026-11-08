@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
 
+const sriLankaPhone = "+94713205555";
+const japanPhone = "+817091117384";
+
 export const siteConfig = {
   name: "Zypher Imports",
   url: "https://www.zypherimports.lk",
   description:
     "Zypher Imports supplies genuine Japanese car and bike parts in Sri Lanka. OEM verified, sourced directly from Japan, and delivered islandwide.",
   email: "zypherimports@gmail.com",
-  phones: ["+94728000516", "+817091117384"],
-  sriLankaPhone: "+94728000516",
-  japanPhone: "+817091117384",
+  phones: [sriLankaPhone, japanPhone],
+  sriLankaPhone,
+  japanPhone,
+  phoneDisplay: "071 320 5555",
+  japanPhoneDisplay: "+81 70-9111-7384",
+  sriLankaWhatsappUrl: `https://wa.me/${sriLankaPhone.slice(1)}`,
+  japanWhatsappUrl: `https://wa.me/${japanPhone.slice(1)}`,
   socialLinks: [
     "https://www.facebook.com/share/12HyqbrRiZu/?mibextid=wwXIfr",
     "https://www.tiktok.com/@zypherauto",

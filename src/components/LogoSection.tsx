@@ -73,10 +73,6 @@ export default function LogoSection() {
           </div>
         </div>
       </div>
-      <label className="mx-4 flex w-fit items-center gap-2 text-xs text-slate-600 sm:mx-8">
-        <input type="checkbox" className="accent-slate-700" />
-        Pause logo animation
-      </label>
     </section>
   );
 }

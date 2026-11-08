@@ -5,6 +5,7 @@ import Image from "next/image";
 import { saira } from "@/styles/fonts";
 import heroParts from "@/assets/hero-parts.png";
 import PopupModal from "@/components/Popup-Modal";
+import { siteConfig } from "@/lib/seo";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement | null>(null);
@@ -53,7 +54,7 @@ export default function Hero() {
 
             <div className="mt-6">
               <a
-                href="https://wa.me/817091117384?text=Hi!%20I%20want%20to%20get%20a%20quotation%20."
+                href={`${siteConfig.japanWhatsappUrl}?text=${encodeURIComponent("Hi! I want to get a quotation.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 md:gap-3 rounded-lg

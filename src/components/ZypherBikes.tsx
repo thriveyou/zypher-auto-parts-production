@@ -4,7 +4,7 @@ import { bikes } from "@/data/bikes";
 import { siteConfig } from "@/lib/seo";
 
 const message = "Hi, I'm looking for a motorcycle from Japan. Can you help me check availability?";
-const whatsappUrl = `https://wa.me/${siteConfig.japanPhone.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
+const whatsappUrl = `${siteConfig.japanWhatsappUrl}?text=${encodeURIComponent(message)}`;
 
 export default function ZypherBikes() {
   return (

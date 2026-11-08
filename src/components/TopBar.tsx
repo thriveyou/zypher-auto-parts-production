@@ -1,4 +1,5 @@
 import { FaWhatsapp } from "react-icons/fa6";
+import { siteConfig } from "@/lib/seo";
 
 const whatsappText = encodeURIComponent(
   "Hi Zypher Imports, I need help with vehicle parts. Please assist.",
@@ -25,7 +26,7 @@ export function UtilityBar() {
         </a>
 
         <a
-          href={`https://wa.me/817091117384?text=${whatsappText}`}
+          href={`${siteConfig.japanWhatsappUrl}?text=${whatsappText}`}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat with Zypher Imports on WhatsApp"
@@ -51,7 +52,7 @@ export default function TopBar() {
 function MobileWhatsAppButton() {
   return (
     <a
-      href={`https://wa.me/817091117384?text=${whatsappText}`}
+      href={`${siteConfig.japanWhatsappUrl}?text=${whatsappText}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Zypher Imports on WhatsApp"

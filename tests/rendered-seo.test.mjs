@@ -32,7 +32,7 @@ for (const [path, title, description] of pages) test(`rendered metadata, schema,
   assert.doesNotMatch(JSON.stringify(schemas), /hasOfferCatalog|"Offer"|"Product"|priceRange|aggregateRating|reviewRating/);
   if (path === "/") assert.match(JSON.stringify(schemas), /"Service"/);
   assert.match(html, /href="https:\/\/parts.zypherimports.lk\/request-form"/);
-  if (path === "/Contact-Us") assert.match(html, /href="tel:\+94728000516"/);
+  if (path === "/Contact-Us") assert.match(html, /href="tel:\+94713205555"/);
   const images = [...html.matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
   assert.ok(images.length);
   const urls = new Set();

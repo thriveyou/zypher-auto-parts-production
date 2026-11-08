@@ -1,5 +1,6 @@
+import { siteConfig } from "@/lib/seo";
+
 export default function OrderCTA() {
-  const waNumber = "817091117384";
   const waText = encodeURIComponent("Hi! I want to get a quotation.");
 
   return (
@@ -37,7 +38,7 @@ export default function OrderCTA() {
 
             <div className="justify-self-center md:justify-self-center">
               <a
-                href={`https://wa.me/${waNumber}?text=${waText}`}
+                href={`${siteConfig.japanWhatsappUrl}?text=${waText}`}
                 className="
                   inline-flex items-center justify-center rounded-lg bg-white
                   px-5 py-2.5 text-sm
@@ -52,17 +53,35 @@ export default function OrderCTA() {
             </div>
             
             <div className="text-center md:text-right">
-              <div
-                className="
-                  text-white font-extrabold
-                  text-base md:text-lg xl:text-2xl
-                "
-              >
-                +81 70-9111-7384
+              <div className="mx-auto flex w-fit flex-col gap-3 text-left md:ml-auto md:mr-0">
+                <a
+                  href={`${siteConfig.sriLankaWhatsappUrl}?text=${waText}`}
+                  className="flex items-center gap-3 rounded-lg text-white transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                >
+                  <span aria-hidden="true" className="text-2xl leading-none">🇱🇰</span>
+                  <span>
+                    <span className="block text-xs font-medium leading-4 text-white/70">Sri Lanka</span>
+                    <span className="block whitespace-nowrap text-lg font-bold leading-snug tabular-nums xl:text-xl">
+                      {siteConfig.phoneDisplay}
+                    </span>
+                  </span>
+                </a>
+                <a
+                  href={`${siteConfig.japanWhatsappUrl}?text=${waText}`}
+                  className="flex items-center gap-3 rounded-lg text-white transition hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                >
+                  <span aria-hidden="true" className="text-2xl leading-none">🇯🇵</span>
+                  <span>
+                    <span className="block text-xs font-medium leading-4 text-white/70">Japan</span>
+                    <span className="block whitespace-nowrap text-lg font-bold leading-snug tabular-nums xl:text-xl">
+                      {siteConfig.japanPhoneDisplay}
+                    </span>
+                  </span>
+                </a>
               </div>
               <div
                 className="
-                  text-[#ffffff] mt-1
+                  text-white/80 mt-3
                   text-xs md:text-xs xl:text-sm
                 "
               >

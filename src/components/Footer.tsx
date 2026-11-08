@@ -9,6 +9,7 @@ import {
   FaTiktok,
 } from "react-icons/fa6";
 import logo from "@/assets/logo-no-bg-cropped.png";
+import { siteConfig } from "@/lib/seo";
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -104,11 +105,11 @@ export default function Footer() {
             <div className="mt-6 space-y-5 text-sm text-slate-300">
               <ContactRow icon={FaPhone}>
                 <div className="flex flex-col gap-1">
-                  <a href="tel:+94728000516" className="transition hover:text-white">
-                    +94 72 8000 516
+                  <a href={`tel:${siteConfig.sriLankaPhone}`} className="transition hover:text-white">
+                    {siteConfig.phoneDisplay}
                   </a>
-                  <a href="tel:+817091117384" className="transition hover:text-white">
-                    +81 70-9111-7384
+                  <a href={`tel:${siteConfig.japanPhone}`} className="transition hover:text-white">
+                    {siteConfig.japanPhoneDisplay}
                   </a>
                 </div>
               </ContactRow>

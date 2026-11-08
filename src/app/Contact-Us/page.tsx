@@ -32,7 +32,8 @@ export default function ContactPage() {
   const whatsappText = encodeURIComponent(
     "Hi Zypher Imports, I need help with vehicle parts. Please assist.",
   );
-  const japanWhatsappLink = `https://wa.me/817091117384?text=${whatsappText}`;
+  const japanWhatsappLink = `${siteConfig.japanWhatsappUrl}?text=${whatsappText}`;
+  const localWhatsappLink = `${siteConfig.sriLankaWhatsappUrl}?text=${whatsappText}`;
 
   return (
     <main id="main-content" tabIndex={-1} className="site-container-narrow min-h-screen py-24">
@@ -82,7 +83,7 @@ export default function ContactPage() {
                   availability.
                 </p>
                 <p className="mt-2 text-sm font-semibold text-green-800">
-                  +81 70 9111 7384
+                  {siteConfig.japanPhoneDisplay}
                 </p>
               </div>
 
@@ -101,24 +102,33 @@ export default function ContactPage() {
           <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <h3 className="font-semibold text-slate-900">Local Hotline</h3>
+                <h3 className="font-semibold text-slate-900">Local Hotline and WhatsApp</h3>
                 <p className="mt-1 text-sm text-slate-600">
-                  Call us for local follow-ups and Sri Lanka delivery support.
+                  Call or WhatsApp us for local follow-ups and Sri Lanka delivery support.
                 </p>
                 <p className="mt-2 text-sm font-medium text-slate-700">
-                  +94 72 8000 516
+                  {siteConfig.phoneDisplay}
                 </p>
               </div>
 
-              <a
-                href="tel:+94728000516"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-green-500 hover:text-green-700 sm:w-auto"
-              >
-                <PhoneIcon className="h-5 w-5" />
-                Local Hotline
-              </a>
+              <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+                <a
+                  href={`tel:${siteConfig.sriLankaPhone}`}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-green-500 hover:text-green-700 sm:w-auto"
+                >
+                  <PhoneIcon className="h-5 w-5" />
+                  Call Us
+                </a>
+                <a
+                  href={localWhatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-green-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-800 sm:w-auto"
+                >
+                  <WhatsAppIcon className="h-5 w-5 fill-current" />
+                  WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         </div>
